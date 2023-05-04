@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block content %} <h3 class="text mb-4 page-title">
+    <a href="{{ url_for('main') }}">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+      </svg>
+</a>Grant Pilot License</h3>
+<form method="POST" id="add_form">
+	<div class="row">
+		<div class="col">
+			<div class="mb-3">
+				<label class="form-label">personID</label>
+				<select class="form-select shadow-sm border-0" id="personID" name="personID">
+					<optgroup label="Please select"> {% for p in person_list %} <option value="{{ p }}">{{ p }}</option> {% endfor %} </optgroup>
+				</select>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">license_type</label>
+				<select class="form-select shadow-sm border-0" id="license_type" name="license_type">
+					<optgroup label="Select license_type">
+						{% for item in license_list %}
+							<option value="{{ item }}">{{ item }}</option>
+						{% endfor %}
+						<option value="custom">custom</option>
+					</optgroup>
+				</select>
+			</div>
+			<div class="mb-3" id="custom_license_type_field">
+				<label class="form-label">custom_license_type</label>
+				<input class="form-control shadow-sm border-0" type="text" id="custom_license_type" name="custom_license_type" placeholder="" />
+			</div>
+		</div>
+	</div>
+	<div style="text-align: right;">
+		<button id="detailButton" type="button" class="btn shadow-sm border-0 text-secondary glass-effect" data-toggle="tooltip" data-placement="top" title="This procedure adds a new pilot license for a valid pilot, ensuring that it is a new and unique license type for that pilot.">Details</button>
+		<button class="btn shadow-sm border-0 text-danger glass-effect" type="reset" style="margin: 10px;">Reset</button>
+		<button class="btn shadow-sm border-0 text-primary glass-effect" type="submit">Add</button>
+	</div>
+</form> {% endblock %}

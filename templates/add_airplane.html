@@ -1,0 +1,66 @@
+{% extends 'base.html' %} {% block content %} <h3 class="text mb-4 page-title">
+    <a href="{{ url_for('main') }}">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+      </svg>
+</a>Add Airplane</h3>
+<form method="POST" id="add_form">
+	<div class="row">
+		<div class="col">
+			<div class="mb-3">
+				<label class="form-label">airlineID</label>
+				<select class="form-select shadow-sm border-0" id="airportID" name="airportID">
+					<optgroup label="Select airlineID"> {% for airlineID in airlineID_list %} <option value="{{ airlineID }}">{{ airlineID }}</option> {% endfor %} </optgroup>
+				</select>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">tail_num</label>
+				<input class="form-control shadow-sm border-0" type="text" id="tail_num" name="tail_num" placeholder="n000xx" />
+			</div>
+			<div class="mb-3">
+				<label class="form-label">seat_capacity</label>
+				<input class="form-control shadow-sm border-0" type="number" id="seat_capacity" name="seat_capacity" />
+			</div>
+			<div class="mb-3">
+				<label class="form-label">speed</label>
+				<input class="form-control shadow-sm border-0" type="number" id="speed" name="speed" type="number" />
+			</div>
+			<div class="mb-3">
+				<label class="form-label">location_id</label>
+				<select class="form-select shadow-sm border-0" id="location_id" name="location_id">
+					<optgroup label="Select locationID"> {% for locationID in locationID_list %} <option value="{{ locationID }}">{{ locationID }}</option> {% endfor %} </optgroup>
+				</select>
+			</div>
+		</div>
+		<div class="col">
+			<div class="mb-3">
+				<label class="form-label">plane_type</label>
+				<select class="form-select shadow-sm border-0" id="plane_type" name="plane_type">
+					<optgroup label="Select plane_type">
+						<option value="jet">jet</option>
+						<option value="prop">prop</option>
+						<option value="testing">testing</option>
+					</optgroup>
+				</select>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">skids</label>
+				<input class="form-control shadow-sm border-0" type="number" id="skids" name="skids" />
+			</div>
+			<div class="mb-3">
+				<label class="form-label">propeller</label>
+				<input class="form-control shadow-sm border-0" type="number" id="propeller" name="propeller" />
+			</div>
+			<div class="mb-3">
+				<label class="form-label">jet_engines</label>
+				<input class="form-control shadow-sm border-0" type="number" id="jet_engines" name="jet_engines" />
+			</div>
+		</div>
+	</div>
+	<div style="text-align: right;">
+		<button id="detailButton" type="button" class="btn shadow-sm border-0 text-secondary glass-effect" data-toggle="tooltip" data-placement="top" title="
+		This procedure adds a new airplane, which requires an existing airline sponsor and a unique tail number. It must have a non-zero seat capacity and speed, and may have additional features depending on its type. The airplane may or may not have a unique location identifier yet, but will receive one before passengers can board for a flight.">Details</button>
+		<button class="btn shadow-sm border-0 text-danger glass-effect" type="reset" style="margin: 10px;">Reset</button>
+		<button class="btn shadow-sm border-0 text-primary glass-effect" type="submit">Add</button>
+	</div>
+</form> {% endblock %}

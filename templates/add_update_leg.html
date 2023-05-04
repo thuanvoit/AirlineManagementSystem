@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block content %} <h3 class="text mb-4 page-title">
+    <a href="{{ url_for('main') }}">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+      </svg>
+</a>Add Update Leg</h3>
+<form method="POST" id="add_form">
+	<div class="row">
+		<div class="col">
+			<div class="mb-3"></div>
+			<div class="mb-3">
+				<label class="form-label">legID</label>
+				<input class="form-control shadow-sm border-0" type="text" id="legID" name="legID" placeholder="leg_0000" />
+			</div>
+			<div class="mb-3">
+				<label class="form-label">distance</label>
+				<input class="form-control shadow-sm border-0" type="text" id="distance" name="distance" />
+			</div>
+			<div class="mb-3">
+				<label class="form-label">departure</label>
+				<select class="form-select shadow-sm border-0" id="departure" name="departure">
+					<optgroup label="Please select"> {% for item in airport_list %} <option value="{{ item }}">{{ item }}</option> {% endfor %} </optgroup>
+				</select>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">arrival</label>
+				<select class="form-select shadow-sm border-0" id="arrival" name="arrival">
+					<optgroup label="Please select"> {% for item in airport_list %} <option value="{{ item }}">{{ item }}</option> {% endfor %} </optgroup>
+				</select>
+			</div>
+		</div>
+	</div>
+	<div style="text-align: right;">
+		<button id="detailButton" type="button" class="btn shadow-sm border-0 text-secondary glass-effect" data-toggle="tooltip" data-placement="top" title="This procedure creates a new leg, but if a leg already exists between the departure and arrival airports, it updates its existence instead of creating a new one while keeping the identifier. All legs must be symmetric, so if a leg in the opposite direction exists, the procedure updates the distance to make it equivalent.">Details</button>
+		<button class="btn shadow-sm border-0 text-danger glass-effect" type="reset" style="margin: 10px;">Reset</button>
+		<button class="btn shadow-sm border-0 text-primary glass-effect" type="submit">Assign</button>
+	</div>
+</form> {% endblock %}

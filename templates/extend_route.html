@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block content %} <h3 class="text mb-4 page-title">
+    <a href="{{ url_for('main') }}">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+      </svg>
+</a>Extend Route</h3>
+<form method="POST" id="add_form">
+	<div class="row">
+		<div class="col">
+			<div class="mb-3"></div>
+			<div class="mb-3">
+				<label class="form-label">routeID</label>
+				<select class="form-select shadow-sm border-0" id="routeID" name="routeID">
+					<optgroup label="Please select"> {% for item in route_list %} <option value="{{ item }}">{{ item }}</option> {% endfor %} </optgroup>
+				</select>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">legID</label>
+				<select class="form-select shadow-sm border-0" id="legID" name="legID">
+					<optgroup label="Please select"> {% for item in leg_list %} <option value="{{ item }}">{{ item }}</option> {% endfor %} </optgroup>
+				</select>
+			</div>
+		</div>
+	</div>
+	<div style="text-align: right;">
+		<button id="detailButton" type="button" class="btn shadow-sm border-0 text-secondary glass-effect" data-toggle="tooltip" data-placement="top" title="This procedure adds a new leg to an existing route, ensuring it's contiguous with the previous leg by having the same departure airport as its arrival airport.">Details</button>
+		<button class="btn shadow-sm border-0 text-danger glass-effect" type="reset" style="margin: 10px;">Reset</button>
+		<button class="btn shadow-sm border-0 text-primary glass-effect" type="submit">Extend</button>
+	</div>
+</form> {% endblock %}

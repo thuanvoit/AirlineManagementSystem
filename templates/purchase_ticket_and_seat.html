@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {% block content %} <h3 class="text mb-4 page-title">
+    <a href="{{ url_for('main') }}">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+      </svg>
+</a>Purchase Ticket and Seat</h3>
+<form method="POST" id="add_form">
+	<div class="row">
+		<div class="col">
+			<div class="mb-3">
+				<label class="form-label">ticketID</label>
+				<input class="form-control shadow-sm border-0" type="text" id="ticketID" name="ticketID" placeholder="tkt_xx_000" />
+			</div>
+			<div class="mb-3">
+				<label class="form-label">cost</label>
+				<input class="form-control shadow-sm border-0" type="text" id="cost" name="cost" />
+			</div>
+			<div class="mb-3">
+				<label class="form-label">carrier</label>
+				<select class="form-select shadow-sm border-0" id="carrier" name="carrier">
+					<optgroup label="Please select"> {% for item in carrier_list %} <option value="{{ item }}">{{ item }}</option> {% endfor %} </optgroup>
+				</select>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">customer</label>
+				<select class="form-select shadow-sm border-0" id="customer" name="customer">
+					<optgroup label="Please select"> {% for item in person_list %} <option value="{{ item }}">{{ item }}</option> {% endfor %} </optgroup>
+				</select>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">deplane_at</label>
+				<select class="form-select shadow-sm border-0" id="deplane" name="deplane">
+					<optgroup label="Please deplane loc"> {% for item in deplane_list %} <option value="{{ item }}">{{ item }}</option> {% endfor %} </optgroup>
+				</select>
+			</div>
+		</div>
+		<div class="col">
+			<div class="mb-3">
+				<label class="form-label">seat_num</label>
+				<input class="form-control shadow-sm border-0" type="text" id="seat_num" name="seat_num" placeholder="00X" />
+			</div>
+		</div>
+	</div>
+	<div style="text-align: right;">
+		<button id="detailButton" type="button" class="btn shadow-sm border-0 text-secondary glass-effect" data-toggle="tooltip" data-placement="top" title="This procedure creates a new ticket tied to a valid person and flight, with optional cost. Departure airport is assumed to be the traveler's current location, and the ticket explicitly lists the final destination airport on the route. The seat must also be unoccupied.">Details</button>
+		<button class="btn shadow-sm border-0 text-danger glass-effect" type="reset" style="margin: 10px;">Reset</button>
+		<button class="btn shadow-sm border-0 text-primary glass-effect" type="submit">Purchase</button>
+	</div>
+</form> {% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %} {% block content %} <h3 class="text mb-4 page-title">
+    <a href="{{ url_for('main') }}">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+      </svg>
+</a>Add Person</h3>
+<form method="POST" id="add_form">
+	<div class="row">
+		<div class="col">
+			<div class="mb-3">
+				<label class="form-label">personID</label>
+				<input class="form-control shadow-sm border-0" type="text" id="personID" name="personID" placeholder="p000" />
+			</div>
+			<div class="mb-3">
+				<label class="form-label">first_name</label>
+				<input class="form-control shadow-sm border-0" type="text" id="first_name" name="first_name" />
+			</div>
+			<div class="mb-3">
+				<label class="form-label">last_name</label>
+				<input class="form-control shadow-sm border-0" type="text" id="last_name" name="last_name" />
+			</div>
+			<div class="mb-3">
+				<label class="form-label">taxID</label>
+				<input class="form-control shadow-sm border-0" type="text" id="taxID" name="taxID" placeholder="XXX-XX-XXXX" />
+			</div>
+			<div class="mb-3">
+				<label class="form-label">location_id</label>
+				<select class="form-select shadow-sm border-0" id="location_id" name="location_id">
+					<optgroup label="Select locationID"> {% for item in locationID_list %} <option value="{{ item }}">{{ item }}</option> {% endfor %} </optgroup>
+				</select>
+			</div>
+		</div>
+		<div class="col">
+			<div class="mb-3">
+				<label class="form-label">experience</label>
+				<input class="form-control shadow-sm border-0" type="number" id="experience" name="experience" />
+			</div>
+			<div class="mb-3">
+				<label class="form-label">airline</label>
+				<select class="form-select shadow-sm border-0" id="airline" name="airline">
+					<optgroup label="Select airline">
+						<option value="{{ 'no_airline' }}" selected>no_airline</option> {% for item in airlineID_list %} <option value="{{ item }}">{{ item }}</option> {% endfor %}
+					</optgroup>
+				</select>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">tail</label>
+				<select class="form-select shadow-sm border-0" id="tail" name="tail">
+					<optgroup label="Select tail_num">
+						<option value="{{ 'no_tail' }}" selected>no_airline</option> {% for item in tail_list %} <option value="{{ item }}">{{ item }}</option> {% endfor %}
+					</optgroup>
+				</select>
+			</div>
+			<div class="mb-3">
+				<label class="form-label" style="margin: 0px;">frequent flyer miles</label>
+				<input class="form-control shadow-sm border-0" type="number" id="miles" name="miles" />
+			</div>
+		</div>
+	</div>
+	<div style="text-align: right;">
+		<button id="detailButton" type="button" class="btn shadow-sm border-0 text-secondary glass-effect" data-toggle="tooltip" data-placement="top" title="This procedure creates a new person with a unique identifier and a database-wide unique location for tracking their current location (either at an airport or on an airplane). A person may have a first and last name and can be a pilot, passenger, or both. Pilots need a tax ID, experience level, and may be assigned to a specific airplane. Passengers have frequent flyer miles.">Details</button>
+		<button class="btn shadow-sm border-0 text-danger glass-effect" type="reset" style="margin: 10px;">Reset</button>
+		<button class="btn shadow-sm border-0 text-primary glass-effect" type="submit">Add</button>
+	</div>
+</form> {% endblock %}

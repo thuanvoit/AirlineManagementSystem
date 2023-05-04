@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+		<title>CS4400 P4 Team 5</title>
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='favicon.ico') }}">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+		<link rel="stylesheet" href="{{ url_for('static',filename='styles/styles.css') }}" />
+		<link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
+		<link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+	</head>
+	<body>
+		<section class="py-4 py-xl-5">
+			<div class="container">
+				<div class="row justify-content-start">
+					<div class="col col-lg-7">
+						<div class="brand-title">
+							<a href="{{ url_for('main') }}">
+								<p>
+									<span style="color: #01bbff;">Airline</span> Management System
+								</p>
+							</a>
+						</div>
+						<div class="card shadow-lg p-3 mb-5 rounded glass-effect border-0">
+							<div class="card-body">
+								<h3 class="text mb-4 page-title">
+    <a href="{{ url_for('main') }}">
+    
+</a>Procedures</h3>
+								<a class="btn btn-primary shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('add_airplane') }}">Add Airplane</a>
+								<a class="btn btn-primary shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('add_airport') }}">Add Airport</a>
+								<a class="btn btn-primary shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('add_person') }}">Add Person</a>
+								<hr />
+								<a class="btn btn-primary shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('grant_pilot_license') }}">Grant Pilot License</a>
+								<a class="btn btn-primary shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('offer_flight') }}">Offer Flight</a>
+								<a class="btn btn-primary shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('purchase_ticket_and_seat') }}">Purchase Ticket and Seat</a>
+								<hr />
+								<a class="btn btn-primary shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('add_update_leg') }}">Add Update Leg</a>
+								<a class="btn btn-secondary shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('start_route') }}">Start Route</a>
+								<a class="btn btn-secondary shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('extend_route') }}">Extend&nbsp;Route</a>
+								<hr />
+								<a class="btn btn-secondary shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('flight_landing') }}">Flight Landing</a>
+								<a class="btn btn-secondary shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('flight_takeoff') }}">Flight Takeoff</a>
+								<a class="btn btn-secondary shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('passengers_board') }}">Passengers Board</a>
+								<a class="btn btn-secondary shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('passengers_disembark') }}">Passengers Disembark</a>
+								<hr />
+								<a class="btn btn-warning shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('assign_pilot') }}">Assign Pilot</a>
+								<a class="btn btn-warning shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('recycle_crew') }}">Recycle Crew</a>
+								<a class="btn btn-warning shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('retire_flight') }}">Retire Flight</a>
+								<a class="btn btn-warning shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('remove_passenger_role') }}">Remove Passenger Role</a>
+								<a class="btn btn-warning shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('remove_pilot_role') }}">Remove Pilot Role</a>
+								<hr />
+								<a class="btn btn-success" role="button" style="margin: 10px;" href="{{ url_for('simulation_cycle') }}">Simulation Cycle</a>
+							</div>
+						</div>
+						<div class="card shadow-lg p-3 mb-5 rounded glass-effect border-0">
+							<div class="card-body">
+								<h3 class="text mb-4 page-title">
+    <a href="{{ url_for('main') }}">
+    
+</a>Views</h3>
+								<a class="btn btn-primary shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('flights_in_the_air') }}">Flights In The Air</a>
+								<a class="btn btn-primary shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('flights_on_the_ground') }}">Flights On The Ground</a>
+								<a class="btn btn-primary shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('people_in_the_air') }}">People In The air</a>
+								<a class="btn btn-primary shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('people_on_the_ground') }}">People On The ground</a>
+								<a class="btn btn-primary shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('route_summary') }}">Route Summary</a>
+								<a class="btn btn-primary shadow-sm border-0" role="button" style="margin: 10px;" href="{{ url_for('alternative_airports') }}">Alternative Airports</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="made-with-love"></div>
+            <div class="source-code"><a href="https://github.gatech.edu/CS4400-Team11/Phase-4-Flask-App.git" target="_blank" style="color: #fff;">Github</a></div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+		<script src="{{ url_for('static',filename='js/script.js') }}"></script>
+	</body>
+</html>
